@@ -14,6 +14,7 @@ export const options = {
     title: "Some Option",
     description:
       "This object defines how SomeOption should be displayed and configured in the Settings UI",
+    type: "string" // options: 'string' | 'number' | 'boolean' | 'select' | 'file'
   },
 };
 
