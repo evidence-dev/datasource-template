@@ -95,8 +95,8 @@ export const getRunner = (options) => {
 //     ],
 //   };
 
-  throw new Error("Process Source has not yet been implemented");
-}
+//  throw new Error("Process Source has not yet been implemented");
+// }
 
 /**
  * Implementing this function creates an "advanced" connector
