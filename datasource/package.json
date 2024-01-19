@@ -1,5 +1,5 @@
 {
-  "name": "my-datasource",
+  "name": "evidence-connector-my-datasource",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -8,7 +8,6 @@
     "test": "vitest --run",
     "check": "tsc --noEmit -p tsconfig.json"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -21,5 +20,9 @@
   },
   "evidence": {
     "datasources": []
-  }
+  },
+  "keywords": [
+    "evidence",
+    "evidence-datasource"
+  ]
 }

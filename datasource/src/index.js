@@ -5,6 +5,8 @@
  * @property {string} SomeOption
  */
 
+import { EvidenceType } from "@evidence-dev/db-commons";
+
 /**
  * @see https://docs.evidence.dev/plugins/creating-a-plugin/datasources#options-specification
  * @see https://github.com/evidence-dev/evidence/blob/main/packages/postgres/index.cjs#L316
@@ -14,7 +16,7 @@ export const options = {
     title: "Some Option",
     description:
       "This object defines how SomeOption should be displayed and configured in the Settings UI",
-    type: "string" // options: 'string' | 'number' | 'boolean' | 'select' | 'file'
+    type: "string", // options: 'string' | 'number' | 'boolean' | 'select' | 'file'
   },
 };
 
@@ -38,16 +40,63 @@ export const getRunner = (options) => {
   // If you are using some local database file (e.g. a sqlite or duckdb file)
   // You may also need to filter that file out as well
   return async (queryText, queryPath) => {
+    // Example output
+    const output = {
+      rows: [
+        { someInt: 1, someString: "string" },
+        { someInt: 2, someString: "string2" },
+      ],
+      columnTypes: [
+        {
+          name: "someInt",
+          evidenceType: EvidenceType.NUMBER,
+          typeFidelity: "inferred",
+        },
+        {
+          name: "someString",
+          evidenceType: EvidenceType.STRING,
+          typeFidelity: "inferred",
+        },
+      ],
+      expectedRowCount: 2,
+    };
+
     throw new Error("Query Runner has not yet been implemented");
   };
 };
 
-
 // Uncomment to use the advanced source interface
+// This uses the `yield` keyword, and returns the same type as getRunner, but with an added `name` and `content` field (content is used for caching)
+// sourceFiles provides an easy way to read the source directory to check for / iterate through files
 // /** @type {import("@evidence-dev/db-commons").ProcessSource<ConnectorOptions>} */
 // export async function* processSource(options, sourceFiles, utilFuncs) {
-//     throw new Error("Process Source has not yet been implemented");
-// }
+//   yield {
+//     title: "some_demo_table",
+//     content: "SELECT * FROM some_demo_table", // This is ONLY used for caching
+//     rows: [], // rows can be an array
+//     columnTypes: [
+//       {
+//         name: "someInt",
+//         evidenceType: EvidenceType.NUMBER,
+//         typeFidelity: "inferred",
+//       },
+//     ],
+//   };
+//   yield {
+//     title: "some_demo_table",
+//     content: "SELECT * FROM some_demo_table", // This is ONLY used for caching
+//     rows: async function* () {}, // rows can be a generator function for returning batches of results (e.g. if an API is paginated, or database supports cursors)
+//     columnTypes: [
+//       {
+//         name: "someInt",
+//         evidenceType: EvidenceType.NUMBER,
+//         typeFidelity: "inferred",
+//       },
+//     ],
+//   };
+
+  throw new Error("Process Source has not yet been implemented");
+}
 
 /**
  * Implementing this function creates an "advanced" connector
