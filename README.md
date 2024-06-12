@@ -24,6 +24,13 @@
     1. Icons can come from [Simple Icons](https://simpleicons.org/), or [Tabler Icons](https://tabler-icons.io/).
     2. Evidence uses [Steeze UI](https://github.com/steeze-ui/icons#icon-packs) for our icons, so the casing must match  
         the Steeze UI export
+   ```json
+   {
+       "evidence": {
+           "icon": "YourIconName"
+       }
+   }
+   ```
 
 ### Specify your connector's options
 
@@ -31,7 +38,7 @@
 
 `ConnectorOptions` should be typed to the expected configuration for your datasource (e.g. hostname, port, etc)  
 
-`options` defines how your connector will be configured in the UI, we recommend reading the [docs](https://https://docs.evidence.dev/plugins/creating-a-plugin/datasources#options-specification), and/or taking a look at the [Evidence Postgres Connector](https://github.com/evidence-dev/evidence/blob/main/packages/postgres/index.cjs#L316). Technically, implementing this is optional, but it provides a much better user experience when your datasource is installed.
+`options` defines how your connector will be configured in the UI, we recommend reading the [docs](https://https://docs.evidence.dev/plugins/creating-a-plugin/datasources#options-specification), and/or taking a look at the [Evidence Postgres Connector](https://github.com/evidence-dev/evidence/blob/main/packages/datasources/postgres/index.cjs#L316). Technically, implementing this is optional, but it provides a much better user experience when your datasource is installed.
 
 ### Choosing an interface
 
