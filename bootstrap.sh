@@ -47,6 +47,7 @@ mv bootstrap.sh plugin-template/bootstrap.sh
 echo "README.md, scaffold.sh and bootstrap.sh have been moved to plugin-template"
 
 # Add the connector to the evidence.plugins.yaml file
+cd test-app
 echo "  \"evidence-connector-$source_name\": {}" >> evidence.plugins.yaml
 
 # Create a source in the test app
