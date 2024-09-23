@@ -11,12 +11,13 @@ chmod +x scaffold.sh run-plugin.sh
 ```
 
 This:
-- Installs the sample plugin in ./datasource
-- Creates a test Evidence app
+- Installs the sample plugin
+- Creates a test Evidence app in `test-app`
 - Installs the sample plugin in the test app
+- Adds a source to the test app
 - Runs the test app
 
-### Configuring [package.json](./datasource/package.json)
+### Configuring [package.json](package.json)
 1. Update the package name
 2. Update `evidence.datasources`
     1. This contains an array of arbitrary data source names that users will use to select this source in their connection.yaml files
@@ -48,7 +49,7 @@ This:
 
 ### Specify your connector's options
 
-[`index.js`](./datasource/src/index.js) defines the type `ConnectorOptions`, and exports an `options` constant.  
+[`index.js`](./src/index.js) defines the type `ConnectorOptions`, and exports an `options` constant.  
 
 `ConnectorOptions` should be typed to the expected configuration for your datasource (e.g. hostname, port, etc)  
 
@@ -58,7 +59,7 @@ This:
 
 Evidence accepts 2 different interfaces when using datasources, one is much easier to write, but is much less flexible.
 
-> Note that [`lib.js`](./datasource/src/lib.js) has a stubbed `databaseTypeToEvidenceType`, which is helpful for building `ColumnTypes` more easily.
+> Note that [`lib.js`](./src/lib.js) has a stubbed `databaseTypeToEvidenceType`, which is helpful for building `ColumnTypes` more easily.
 
 #### Simple Interface
 
@@ -76,13 +77,13 @@ For the advanced interface, implement the `processSource` function; which is an 
 
 This template comes with [`vitest`](https://vitest.dev/) pre-installed. If you've used [jest](https://jestjs.io/), vitest implements a very similar API.
 
-Tests have been stubbed in [`index.spec.js`](./datasource/src/index.spec.js), and can be run with `npm run test`
+Tests have been stubbed in [`index.spec.js`](./src/index.spec.js), and can be run with `npm run test`
 
 Typescript has also been included with a basic configuration, and your types can be checked with `npm run check`
 
 ### Testing your datasource
 
-1. Install your connector in `test-project` using `npm i ../datasource`
+1. Install your connector in `test-project` using `npm i ..`
 2. Add your connector's package name to [`evidence.plugins.yaml`](./test-project/evidence.plugins.yaml)
 3. Create a source that uses your connector
    1. You can either create it manually in [`sources`](./test-project/sources/), or in the [settings ui](http://localhost:3000/settings).
