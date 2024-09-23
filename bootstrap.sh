@@ -45,3 +45,24 @@ mv scaffold.sh plugin-template/scaffold.sh
 mv bootstrap.sh plugin-template/bootstrap.sh
 
 echo "README.md, scaffold.sh and bootstrap.sh have been moved to plugin-template"
+
+# Add the connector to the evidence.plugins.yaml file
+cd test-app
+echo "  \"evidence-connector-$source_name\": {}" >> evidence.plugins.yaml
+
+# Create a source in the test app
+rm -rf sources/test_source
+mkdir sources/test_$source_name
+echo """name: test_$source_name
+type: $source_name
+""" >> sources/test_$source_name/connection.yaml
+echo "select 1" >> sources/test_$source_name/test_query.sql
+
+# Edit the index.md file to show the test_query in a table
+cd pages
+echo """## Test Plugin is working!
+\`\`\`sql test_plugin
+select * from test_$source_name.test_query
+\`\`\`
+<DataTable data={test_plugin} />
+""" >> index.md
