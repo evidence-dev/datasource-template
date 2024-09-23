@@ -19,7 +19,9 @@
     "@evidence-dev/db-commons": "^1.0.1"
   },
   "evidence": {
-    "datasources": []
+    "datasources": [
+      "my-datasource"
+    ]
   },
   "keywords": [
     "evidence",

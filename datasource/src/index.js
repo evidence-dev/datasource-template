@@ -61,7 +61,7 @@ export const getRunner = (options) => {
       expectedRowCount: 2,
     };
 
-    throw new Error("Query Runner has not yet been implemented");
+    return output;
   };
 };
 
@@ -108,5 +108,5 @@ export const getRunner = (options) => {
 
 /** @type {import("@evidence-dev/db-commons").ConnectionTester<ConnectorOptions>} */
 export const testConnection = async (opts) => {
-  throw new Error("Connection test has not yet been implemented");
+  return true;
 };

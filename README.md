@@ -2,6 +2,13 @@
 
 ## Usage
 
+### Install and run the sample plugin
+
+```bash
+chmod +x start.sh
+./start.sh
+```
+
 ### Configuring [package.json](./datasource/package.json)
 1. Update the package name
 2. Update `evidence.datasources`
