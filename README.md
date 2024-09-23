@@ -21,6 +21,8 @@ These commands:
 - Add a source to the test app
 - Run the test app
 
+To verify the plugin works, scroll to the bottom of the app homepage and you should see "Test Plugin is working" with some sample data in a table.
+
 ## Make the plugin your own
 
 Run the following to rename the sample plugin. It will prompt you for the new name.
