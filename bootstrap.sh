@@ -51,6 +51,7 @@ cd test-app
 echo "  \"evidence-connector-$source_name\": {}" >> evidence.plugins.yaml
 
 # Create a source in the test app
+rm -rf sources/test_source
 mkdir sources/test_$source_name
 echo """name: test_$source_name
 type: $source_name
