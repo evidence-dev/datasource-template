@@ -5,8 +5,9 @@
 ### Install and run the sample plugin in a test app
 
 ```bash
-chmod +x start.sh
-./start.sh
+chmod +x scaffold.sh run-plugin.sh
+./scaffold.sh
+./run-plugin.sh
 ```
 
 This:

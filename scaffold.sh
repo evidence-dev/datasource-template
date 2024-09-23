@@ -18,7 +18,3 @@ echo """name: test_source
 type: my-datasource
 """ >> sources/test_source/connection.yaml
 echo "select 1" >> sources/test_source/test_query.sql
-
-# Run the sources with the plugin installed
-npm run sources
-npm run dev
