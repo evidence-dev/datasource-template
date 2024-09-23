@@ -7,6 +7,8 @@ Use this template to create a new Evidence source plugin. The template includes 
 
 Click the "Use this template" button above to create a new repository from this template. The convention for the repo name is `evidence-connector-[sourcename]`.
 
+Open your repository and run the following (you may need to run `chmod +x ./scaffold.sh` to make the scripts executable)
+
 ```bash
 ./scaffold.sh
 ./run-plugin.sh
