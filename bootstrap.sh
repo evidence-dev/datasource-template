@@ -34,12 +34,12 @@ echo "select 1" >> sources/test_$plugin_name/test_query.sql
 
 ## Edit the index.md file to show the test_query in a table
 cd pages
-echo """## Test Plugin is working!
+echo """## $plugin_name plugin is working!
 \`\`\`sql test_plugin
 select * from test_$plugin_name.test_query
 \`\`\`
 <DataTable data={test_plugin} />
-""" >> index.md
+""" > index.md
 
 cd ../../
 
