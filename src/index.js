@@ -8,7 +8,7 @@
 import { EvidenceType } from "@evidence-dev/db-commons";
 
 /**
- * @see https://docs.evidence.dev/plugins/creating-a-plugin/datasources#options-specification
+ * @see https://docs.evidence.dev/plugins/create-source-plugin/#options-specification
  * @see https://github.com/evidence-dev/evidence/blob/main/packages/postgres/index.cjs#L316
  */
 export const options = {
@@ -27,7 +27,7 @@ export const options = {
  * either an array, or an async generator {@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function*}
  * that contains the query results
  *
- * @see https://docs.evidence.dev/plugins/creating-a-plugin/datasources#simple-interface-arrays
+ * @see https://docs.evidence.dev/plugins/create-source-plugin/
  * @type {import("@evidence-dev/db-commons").GetRunner<ConnectorOptions>}
  */
 export const getRunner = (options) => {
@@ -105,7 +105,7 @@ export const getRunner = (options) => {
  * Implementing this function creates an "advanced" connector
  *
  *
- * @see https://docs.evidence.dev/plugins/creating-a-plugin/datasources#advanced-interface-generator-functions
+ * @see https://docs.evidence.dev/plugins/create-source-plugin/
  * @type {import("@evidence-dev/db-commons").GetRunner<ConnectorOptions>}
  */
 
