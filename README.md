@@ -1,8 +1,9 @@
-# Evidence Datasource Connector Template
+# Evidence Source Plugin Template
 
-## Usage
+Use this template to create a new Evidence source plugin. The template includes a simple example plugin, which you can use to get started.
 
-### Install and run the sample plugin in a test app
+
+## Install and run the sample plugin
 
 ```bash
 chmod +x scaffold.sh run-plugin.sh
@@ -16,6 +17,8 @@ This:
 - Installs the sample plugin in the test app
 - Adds a source to the test app
 - Runs the test app
+
+## Configuring your plugin
 
 ### Configuring [package.json](package.json)
 1. Update the package name
@@ -53,7 +56,7 @@ This:
 
 `ConnectorOptions` should be typed to the expected configuration for your datasource (e.g. hostname, port, etc)  
 
-`options` defines how your connector will be configured in the UI, we recommend reading the [docs](https://https://docs.evidence.dev/plugins/creating-a-plugin/datasources#options-specification), and/or taking a look at the [Evidence Postgres Connector](https://github.com/evidence-dev/evidence/blob/main/packages/datasources/postgres/index.cjs#L242). Technically, implementing this is optional, but it provides a much better user experience when your datasource is installed.
+`options` defines how your connector will be configured in the UI, see the [docs](https://docs.evidence.dev/plugins/create-source-plugin/), and/or taking a look at the [Evidence Postgres Connector](https://github.com/evidence-dev/evidence/blob/main/packages/datasources/postgres/index.cjs#L242). Technically, implementing this is optional, but it provides a much better user experience when your datasource is installed.
 
 ### Choosing an interface
 
@@ -64,6 +67,9 @@ Evidence accepts 2 different interfaces when using datasources, one is much easi
 #### Simple Interface
 
 For the simple interface, implement the `getRunner` function; which is a factory pattern for building a configured QueryRunner.
+
+The sample plugin uses the simple interface.
+
 Each query can either return an array of results, or an [async generator function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function*) if implementing cursor logic (this enables much larger datasets)
 
 #### Advanced Interface
@@ -78,16 +84,3 @@ For the advanced interface, implement the `processSource` function; which is an 
 This template comes with [`vitest`](https://vitest.dev/) pre-installed. If you've used [jest](https://jestjs.io/), vitest implements a very similar API.
 
 Tests have been stubbed in [`index.spec.js`](./src/index.spec.js), and can be run with `npm run test`
-
-Typescript has also been included with a basic configuration, and your types can be checked with `npm run check`
-
-### Testing your datasource
-
-1. Install your connector in `test-project` using `npm i ..`
-2. Add your connector's package name to [`evidence.plugins.yaml`](./test-project/evidence.plugins.yaml)
-3. Create a source that uses your connector
-   1. You can either create it manually in [`sources`](./test-project/sources/), or in the [settings ui](http://localhost:3000/settings).
-   2. If you populated your `options` object, testing it in the settings UI is recommended.
-4. Use `npm run sources` in the test project to execute your datasource, and modify [`index.md`](./test-project/pages/index.md) to use your new source.
-   1. It can also be helpful to referenecs the [`schema explorer`](http://localhost:3000/explore/schema) to make sure that the types returned  
-     by your connector match what you are expecting.

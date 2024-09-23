@@ -1,3 +1,4 @@
+#!/bin/bash
 # Clean up the test-app directory if it exists
 rm -rf test-app
 

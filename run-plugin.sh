@@ -1,3 +1,4 @@
+#!/bin/bash
 # Update the plugin dependencies
 npm install
 
