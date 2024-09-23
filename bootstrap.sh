@@ -24,7 +24,6 @@ echo "package.json has been updated."
 # Create a new README.md with the title Evidence [source_name] Source Plugin
 mkdir -p plugin-template
 mv README.md plugin-template/README.md
-echo "README.md has been moved to plugin-template/README.md"
 echo "# Evidence $source_name Source Plugin
 
 Install this plugin in an Evidence app with
@@ -40,3 +39,9 @@ datasources:
 
 Launch the development server with \`npm run dev\` and navigate to the settings menu (localhost:3000/settings) to add a data source using this plugin.
 " > README.md
+
+# Move the scaffold.sh and bootstrap.sh to the plugin-template folder
+mv scaffold.sh plugin-template/scaffold.sh
+mv bootstrap.sh plugin-template/bootstrap.sh
+
+echo "README.md, scaffold.sh and bootstrap.sh have been moved to plugin-template"
