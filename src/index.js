@@ -21,7 +21,7 @@ export const options = {
 };
 
 /**
- * Implementing this function creates a "simple" connector
+ * Implementing this function creates a "file-based" connector
  *
  * Each file in the source directory will be passed to this function, and it will return
  * either an array, or an async generator {@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function*}
@@ -40,7 +40,10 @@ export const getRunner = (options) => {
   // If you are using some local database file (e.g. a sqlite or duckdb file)
   // You may also need to filter that file out as well
   return async (queryText, queryPath) => {
-    // Example output
+    // Note: add your logic to process each file queryText and/or queryPath here
+    // ...
+    
+    // Example output, delete or modify as needed
     const output = {
       rows: [
         { someInt: 1, someString: "string" },
@@ -61,7 +64,7 @@ export const getRunner = (options) => {
       expectedRowCount: 2,
     };
 
-    throw new Error("Query Runner has not yet been implemented");
+    return output;
   };
 };
 
@@ -108,5 +111,5 @@ export const getRunner = (options) => {
 
 /** @type {import("@evidence-dev/db-commons").ConnectionTester<ConnectorOptions>} */
 export const testConnection = async (opts) => {
-  throw new Error("Connection test has not yet been implemented");
+  return true;
 };

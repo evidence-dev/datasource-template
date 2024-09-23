@@ -9,7 +9,7 @@
     "check": "tsc --noEmit -p tsconfig.json"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@evidence-dev/plugin-connector": "^2.0.4",
     "typescript": "^5.3.3",
@@ -19,7 +19,7 @@
     "@evidence-dev/db-commons": "^1.0.1"
   },
   "evidence": {
-    "datasources": []
+    "datasources": ["my-datasource"]
   },
   "keywords": [
     "evidence",
