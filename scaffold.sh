@@ -13,11 +13,12 @@ npm install ../datasource
 echo '  "evidence-connector-my-datasource": { }' >> evidence.plugins.yaml
 
 # Create a source in the test app
-mkdir sources/test-source
-echo """name: test-source
+mkdir sources/test_source
+echo """name: test_source
 type: my-datasource
-""" >> sources/test-source/connection.yaml
-echo "select 1" >> sources/test-source/test-query.sql
+""" >> sources/test_source/connection.yaml
+echo "select 1" >> sources/test_source/test_query.sql
 
 # Run the sources with the plugin installed
 npm run sources
+npm run dev

@@ -2,12 +2,18 @@
 
 ## Usage
 
-### Install and run the sample plugin
+### Install and run the sample plugin in a test app
 
 ```bash
 chmod +x start.sh
 ./start.sh
 ```
+
+This:
+- Installs the sample plugin in ./datasource
+- Creates a test Evidence app
+- Installs the sample plugin in the test app
+- Runs the test app
 
 ### Configuring [package.json](./datasource/package.json)
 1. Update the package name
