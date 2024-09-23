@@ -28,18 +28,20 @@ echo "  \"evidence-connector-$plugin_name\": {}" >> evidence.plugins.yaml
 rm -rf sources/test_source
 mkdir sources/test_$plugin_name
 echo """name: test_$plugin_name
-type: $source_name
-""" >> sources/test_$source_name/connection.yaml
-echo "select 1" >> sources/test_$source_name/test_query.sql
+type: $plugin_name
+""" >> sources/test_$plugin_name/connection.yaml
+echo "select 1" >> sources/test_$plugin_name/test_query.sql
 
 ## Edit the index.md file to show the test_query in a table
 cd pages
 echo """## Test Plugin is working!
 \`\`\`sql test_plugin
-select * from test_$source_name.test_query
+select * from test_$plugin_name.test_query
 \`\`\`
 <DataTable data={test_plugin} />
 """ >> index.md
+
+cd ../../
 
 # 3. Update the plugin files
 
@@ -79,7 +81,6 @@ Launch the development server with \`npm run dev\` and navigate to the settings 
 " > README.md
 
 ## Move the scaffold.sh and bootstrap.sh to the plugin-template folder
-mv scaffold.sh plugin-template/scaffold.sh
 mv bootstrap.sh plugin-template/bootstrap.sh
 
 echo "README.md, scaffold.sh and bootstrap.sh have been moved to plugin-template"

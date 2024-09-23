@@ -85,13 +85,27 @@ For the advanced interface, implement the `processSource` function; which is an 
    }
    ```
 
-
-
-
-
-
 ### [Recommended] Write Unit Tests
 
 This template comes with [`vitest`](https://vitest.dev/) pre-installed. If you've used [jest](https://jestjs.io/), vitest implements a very similar API.
 
 Tests have been stubbed in [`index.spec.js`](./src/index.spec.js), and can be run with `npm run test`
+
+### Publishing to npm
+
+You need an npm account to publish your plugin. 
+If you don't have one, you can [sign up](https://www.npmjs.com/signup) for free.
+
+To publish your connector to npm, follow these steps:
+
+1. **Login to npm**: If you haven't already, you need to login to your npm account. You can do this by running:
+
+```bash
+npm login
+```
+
+2. **Publish the package**: Once you are logged in and the version is updated in package.json, you can publish your package by running:
+
+```bash
+npm publish
+```
