@@ -86,12 +86,12 @@ export const getRunner = (options) => {
 //     ],
 //   };
 //   yield {
-//     title: "some_demo_table",
-//     content: "SELECT * FROM some_demo_table", // This is ONLY used for caching
+//     title: "some_other_demo_table",
+//     content: "SELECT * FROM some_other_demo_table", // This is ONLY used for caching
 //     rows: async function* () {}, // rows can be a generator function for returning batches of results (e.g. if an API is paginated, or database supports cursors)
 //     columnTypes: [
 //       {
-//         name: "someInt",
+//         name: "someOtherInt",
 //         evidenceType: EvidenceType.NUMBER,
 //         typeFidelity: "inferred",
 //       },
@@ -100,14 +100,6 @@ export const getRunner = (options) => {
 
 //  throw new Error("Process Source has not yet been implemented");
 // }
-
-/**
- * Implementing this function creates an "advanced" connector
- *
- *
- * @see https://docs.evidence.dev/plugins/create-source-plugin/
- * @type {import("@evidence-dev/db-commons").GetRunner<ConnectorOptions>}
- */
 
 /** @type {import("@evidence-dev/db-commons").ConnectionTester<ConnectorOptions>} */
 export const testConnection = async (opts) => {
